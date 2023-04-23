@@ -1,0 +1,20 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--max-line-length=79",
+        "--load-plugins",
+        "pylint_pytest"
+        ],
+    "python.linting.mypyEnabled": true,
+    "files.exclude": {
+        "**/*.pyc": {"when": "$(basename).py"},
+        "**/__pycache__": true,
+        "**/*.pytest_cache": true
+    },
+    "[python]": {
+        "editor.rulers": [
+            79
+        ]
+    }
+}
