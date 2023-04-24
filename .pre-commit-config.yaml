@@ -1,0 +1,36 @@
+repos:
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.7.9
+    hooks:
+    - id: flake8
+      stages: [commit]
+  - repo: local
+    hooks:
+    - id: pytest
+      name: pytest
+      language: system
+      entry: pytest -v -s
+      always_run: true
+      pass_filenames: false
+      stages: [commit]
+  - repo: local
+    hooks:
+      - id: requirements
+        name: requirements
+        entry: bash -c 'pip3 freeze > requirements.txt; git add requirements.txt'
+        language: system
+        pass_filenames: false
+        stages: [commit]
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: "mypy ./"
+        language: python
+        # trigger for commits changing Python files
+        types: [python]
+        # use require_serial so that script
+        # is only called once per commit
+        require_serial: true
+        # print the number of files as a sanity-check
+        verbose: true
