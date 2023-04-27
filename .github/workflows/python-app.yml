@@ -1,0 +1,47 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov pytest-mock pytest-coverage
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
+      run: |
+        pytest --cov
+    - name: Creating coverage folder
+      run: |
+        mkdir -p coverage
+    - name: Coverage Bagdge
+      uses: tj-actions/coverage-badge-py@v1.8
+      with:
+        output: coverage/coverage.svg
+    - name: Publish coverage report to coverage-badge branch
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: coverage-badge
+        folder: coverage

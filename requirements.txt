@@ -22,6 +22,8 @@ pylint==2.17.2
 pylint-pytest==1.1.2
 pytest==7.3.1
 pytest-cov==4.0.0
+pytest-cover==3.0.0
+pytest-coverage==0.0
 pytest-mock==3.10.0
 PyYAML==6.0
 tomli==2.0.1
