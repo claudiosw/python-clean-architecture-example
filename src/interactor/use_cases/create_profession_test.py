@@ -41,4 +41,4 @@ def test_create_profession(mocker, fixture_profession_developer):
     repository_mock.create.assert_called_once()
     output_dto = CreateProfessionOutputDto(profession)
     presenter_mock.present.assert_called_once_with(output_dto)
-    assert result == "Test outpu"
+    assert result == "Test output"
