@@ -1,4 +1,4 @@
-![tests](https://github.com/claudiosw/python-clean-architecture-example/workflows/python-app/badge.svg)![code coverage](https://raw.githubusercontent.com/claudiosw/python-clean-architecture-example/coverage-badge/coverage.svg?raw=true)
+![tests](https://github.com/claudiosw/python-clean-architecture-example/workflows/pytesting/badge.svg) &nbsp; ![code coverage](https://raw.githubusercontent.com/claudiosw/python-clean-architecture-example/coverage-badge/coverage.svg?raw=true)
 
 # About
 
