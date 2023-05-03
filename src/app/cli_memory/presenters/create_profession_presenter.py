@@ -1,4 +1,4 @@
-""" Module for the CreateProfessionPresenterInterface
+""" Module for the CreateProfessionPresenter
 """
 
 
@@ -10,7 +10,7 @@ from src.interactor.interfaces.presenters.create_profession_presenter \
 
 
 class CreateProfessionPresenter(CreateProfessionPresenterInterface):
-    """ Class for the Interface of the CreateProfessionPresenter
+    """ Class for the CreateProfessionPresenter
     """
     def present(self, output_dto: CreateProfessionOutputDto) -> Dict:
         """ Present the CreateProfession
