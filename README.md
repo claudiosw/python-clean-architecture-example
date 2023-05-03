@@ -33,3 +33,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 pre-commit install
 ```
+
+## Run the CLI
+```
+python .\cli_memory_process_handler.py
+```
