@@ -2,3 +2,5 @@
 .pytest_cache
 venv
 .env
+
+.coverage
