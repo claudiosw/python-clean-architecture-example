@@ -3,8 +3,8 @@
 # pylint: disable=missing-function-docstring
 
 
-import pytest
 from typing import Dict
+import pytest
 from src.interactor.validations.base_input_validator import BaseInputValidator
 
 
