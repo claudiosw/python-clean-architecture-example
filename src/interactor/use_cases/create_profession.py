@@ -9,6 +9,8 @@ from src.interactor.interfaces.presenters.create_profession_presenter \
     import CreateProfessionPresenterInterface
 from src.interactor.interfaces.repositories.profession_repository \
     import ProfessionRepositoryInterface
+from src.interactor.validations.create_profession_validator \
+    import CreateProfessionInputDtoValidator
 
 
 class CreateProfessionUseCase():
@@ -33,6 +35,8 @@ class CreateProfessionUseCase():
         :return: Dict
         """
 
+        validator = CreateProfessionInputDtoValidator(input_dto.to_dict())
+        validator.validate()
         profession = self.repository.create(
             input_dto.name,
             input_dto.description
