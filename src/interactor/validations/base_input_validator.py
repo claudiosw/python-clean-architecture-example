@@ -29,4 +29,4 @@ class BaseInputValidator:
         for field, messages in self.errors.items():
             for message in messages:
                 error_messages.append(f"{field.capitalize()}: {message}")
-        raise ValueError("\n{}".join(error_messages))
+        raise ValueError("\n".join(error_messages))

@@ -18,6 +18,13 @@ class BaseValidator(BaseInputValidator):
                     "maxlength": 10,
                     "required": True,
                     "empty": False
+                },
+                "description": {
+                    "type": "string",
+                    "minlength": 3,
+                    "maxlength": 10,
+                    "required": False,
+                    "empty": True
                 }
         }
 
@@ -32,11 +39,12 @@ def test_base_validator_with_valid_data():
 
 
 def test_base_validator_with_small_data():
-    data = {'name': 'a'}
+    data = {'name': 'a', 'description': 'a'}
     validator = BaseValidator(data)
     with pytest.raises(ValueError) as exception_info:
         validator.validate()
-    assert str(exception_info.value) == "Name: min length is 3"
+    assert str(exception_info.value) == "Description: min length is 3\n\
+Name: min length is 3"
 
 
 def test_base_validator_with_long_data():
