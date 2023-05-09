@@ -11,6 +11,7 @@ from src.interactor.interfaces.repositories.profession_repository \
     import ProfessionRepositoryInterface
 from src.interactor.validations.create_profession_validator \
     import CreateProfessionInputDtoValidator
+from src.interactor.interfaces.logger.logger import LoggerInterface
 
 
 class CreateProfessionUseCase():
@@ -20,10 +21,12 @@ class CreateProfessionUseCase():
     def __init__(
             self,
             presenter: CreateProfessionPresenterInterface,
-            repository: ProfessionRepositoryInterface
+            repository: ProfessionRepositoryInterface,
+            logger: LoggerInterface
     ):
         self.presenter = presenter
         self.repository = repository
+        self.logger = logger
 
     def execute(
             self,
@@ -42,4 +45,6 @@ class CreateProfessionUseCase():
             input_dto.description
         )
         output_dto = CreateProfessionOutputDto(profession)
-        return self.presenter.present(output_dto)
+        presenter_response = self.presenter.present(output_dto)
+        self.logger.log_info("Profession created successfully")
+        return presenter_response

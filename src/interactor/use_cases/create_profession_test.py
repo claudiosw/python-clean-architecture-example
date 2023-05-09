@@ -12,6 +12,7 @@ from src.interactor.interfaces.presenters.create_profession_presenter \
     import CreateProfessionPresenterInterface
 from src.interactor.interfaces.repositories.profession_repository \
     import ProfessionRepositoryInterface
+from src.interactor.interfaces.logger.logger import LoggerInterface
 
 
 def test_create_profession(mocker, fixture_profession_developer):
@@ -28,11 +29,16 @@ def test_create_profession(mocker, fixture_profession_developer):
         ProfessionRepositoryInterface,
         "create"
     )
+    logger_mock = mocker.patch.object(
+        LoggerInterface,
+        "log_info"
+    )
     repository_mock.create.return_value = profession
     presenter_mock.present.return_value = "Test output"
     use_case = create_profession.CreateProfessionUseCase(
         presenter_mock,
-        repository_mock
+        repository_mock,
+        logger_mock
     )
     input_dto = CreateProfessionInputDto(
         name=fixture_profession_developer["name"],
@@ -40,6 +46,8 @@ def test_create_profession(mocker, fixture_profession_developer):
     )
     result = use_case.execute(input_dto)
     repository_mock.create.assert_called_once()
+    logger_mock.log_info.assert_called_once_with(
+        "Profession created successfully")
     output_dto = CreateProfessionOutputDto(profession)
     presenter_mock.present.assert_called_once_with(output_dto)
     assert result == "Test output"
@@ -54,9 +62,14 @@ def test_create_profession_empty_field(mocker, fixture_profession_developer):
         ProfessionRepositoryInterface,
         "create"
     )
+    logger_mock = mocker.patch.object(
+        LoggerInterface,
+        "log_info"
+    )
     use_case = create_profession.CreateProfessionUseCase(
         presenter_mock,
-        repository_mock
+        repository_mock,
+        logger_mock
     )
     input_dto = CreateProfessionInputDto(
         name="",
