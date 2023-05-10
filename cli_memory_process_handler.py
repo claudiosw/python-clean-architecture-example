@@ -57,7 +57,7 @@ class CliMemoryProcessHandler:
                     FieldValueNotPermittedException
                 ) as exception:
                     print(f'\nERROR: {str(exception)}\n')
-                    self.logger.log_error(str(exception))
+                    self.logger.log_exception(str(exception))
             else:
                 print("Invalid choice.")
                 self.logger.log_info(f"Invalid user choice: {option}")
