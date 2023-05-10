@@ -38,3 +38,9 @@ class LoggerInterface(ABC):
         """ Log critical message.
         :param message: Message to log.
         """
+
+    @abstractmethod
+    def log_exception(self, message: str) -> None:
+        """ Log exception message with exception info.
+        :param message: Message to log.
+        """
