@@ -13,7 +13,9 @@ class LoggerDefault(LoggerInterface):
         logging.basicConfig(
             filename='app.log',
             filemode='a',
-            format='%(asctime)-s - %(name)s - %(levelname)s - %(message)s'
+            datefmt='%Y-%m-%d %H:%M:%S',
+            format='%(asctime)-s - %(levelname)s - %(message)s',
+            level=logging.INFO
         )
 
     def log_debug(self, message: str) -> None:
@@ -45,3 +47,9 @@ class LoggerDefault(LoggerInterface):
         :param message: Message to log.
         """
         logging.critical(message)
+
+    def log_exception(self, message: str) -> None:
+        """ Log exception message with exception info.
+        :param message: Message to log.
+        """
+        logging.exception(message)

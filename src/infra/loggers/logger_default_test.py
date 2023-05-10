@@ -32,3 +32,8 @@ def test_logger_default(mocker):
     logger = LoggerDefault()
     logger.log_critical('testcrit')
     assert logging.critical.call_once_with('testcrit')  # pylint: disable=E1101
+
+    mocker.patch.object(logging, 'exception')
+    logger = LoggerDefault()
+    logger.log_exception('testexc')
+    assert logging.exception.call_once_with('testexc')  # pylint: disable=E1101
