@@ -29,6 +29,11 @@ def test_create_profession(mocker, fixture_profession_developer):
         ProfessionRepositoryInterface,
         "create"
     )
+
+    input_dto_validator_mock = mocker.patch(
+        "src.interactor.use_cases.create_profession.\
+CreateProfessionInputDtoValidator"
+    )
     logger_mock = mocker.patch.object(
         LoggerInterface,
         "log_info"
@@ -46,6 +51,9 @@ def test_create_profession(mocker, fixture_profession_developer):
     )
     result = use_case.execute(input_dto)
     repository_mock.create.assert_called_once()
+    input_dto_validator_mock.assert_called_once_with(input_dto.to_dict())
+    input_dto_validator_instance = input_dto_validator_mock.return_value
+    input_dto_validator_instance.validate.assert_called_once_with()
     logger_mock.log_info.assert_called_once_with(
         "Profession created successfully")
     output_dto = CreateProfessionOutputDto(profession)
