@@ -6,6 +6,7 @@ This repository is a simple example of an implementation Clean Architecture usin
 # Articles about this project
 I am writing a series of Linkedin articles related to this project:
 * [Python Clean Architecture In-memory CLI implementation](https://www.linkedin.com/pulse/implementation-clean-architecture-python-part-1-cli-watanabe/): I wrote [this article](https://www.linkedin.com/pulse/implementation-clean-architecture-python-part-1-cli-watanabe/) explaining the Clean Architecture, its layers and a Python implementation of an in-memory CLI.
+* [Error Handling, Logging and Validation implementation in Python Clean Architecture](https://www.linkedin.com/pulse/implementation-clean-architecture-python-part-2-error-watanabe/): I wrote [this article](https://www.linkedin.com/pulse/implementation-clean-architecture-python-part-2-error-watanabe/) about error handling, logging and validation, including some Python best practices around these topics. I complemented our Python Clean Architecture implementation with those topics.
 
 Also, [check this repository](https://github.com/claudiosw/python-best-practices) where you can find examples and explanations of Python best practices that complement this repository and its articles.
 
