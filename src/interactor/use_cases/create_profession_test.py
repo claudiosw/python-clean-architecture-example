@@ -3,6 +3,7 @@
 # pylint: disable=missing-function-docstring
 
 
+import pytest
 from src.interactor.use_cases import create_profession
 from src.domain.entities.profession import Profession
 from src.interactor.dtos.create_profession_dtos \
@@ -11,6 +12,7 @@ from src.interactor.interfaces.presenters.create_profession_presenter \
     import CreateProfessionPresenterInterface
 from src.interactor.interfaces.repositories.profession_repository \
     import ProfessionRepositoryInterface
+from src.interactor.interfaces.logger.logger import LoggerInterface
 
 
 def test_create_profession(mocker, fixture_profession_developer):
@@ -27,18 +29,63 @@ def test_create_profession(mocker, fixture_profession_developer):
         ProfessionRepositoryInterface,
         "create"
     )
+
+    input_dto_validator_mock = mocker.patch(
+        "src.interactor.use_cases.create_profession.\
+CreateProfessionInputDtoValidator"
+    )
+    logger_mock = mocker.patch.object(
+        LoggerInterface,
+        "log_info"
+    )
     repository_mock.create.return_value = profession
     presenter_mock.present.return_value = "Test output"
     use_case = create_profession.CreateProfessionUseCase(
         presenter_mock,
-        repository_mock
+        repository_mock,
+        logger_mock
     )
-    create_profession_input_dto = CreateProfessionInputDto(
+    input_dto = CreateProfessionInputDto(
         name=fixture_profession_developer["name"],
         description=fixture_profession_developer["description"]
     )
-    result = use_case.execute(create_profession_input_dto)
+    result = use_case.execute(input_dto)
     repository_mock.create.assert_called_once()
+    input_dto_validator_mock.assert_called_once_with(input_dto.to_dict())
+    input_dto_validator_instance = input_dto_validator_mock.return_value
+    input_dto_validator_instance.validate.assert_called_once_with()
+    logger_mock.log_info.assert_called_once_with(
+        "Profession created successfully")
     output_dto = CreateProfessionOutputDto(profession)
     presenter_mock.present.assert_called_once_with(output_dto)
     assert result == "Test output"
+
+
+def test_create_profession_empty_field(mocker, fixture_profession_developer):
+    presenter_mock = mocker.patch.object(
+        CreateProfessionPresenterInterface,
+        "present"
+    )
+    repository_mock = mocker.patch.object(
+        ProfessionRepositoryInterface,
+        "create"
+    )
+    logger_mock = mocker.patch.object(
+        LoggerInterface,
+        "log_info"
+    )
+    use_case = create_profession.CreateProfessionUseCase(
+        presenter_mock,
+        repository_mock,
+        logger_mock
+    )
+    input_dto = CreateProfessionInputDto(
+        name="",
+        description=fixture_profession_developer["description"]
+    )
+    with pytest.raises(ValueError) as exception_info:
+        use_case.execute(input_dto)
+    assert str(exception_info.value) == "Name: empty values not allowed"
+
+    repository_mock.create.assert_not_called()
+    presenter_mock.present.assert_not_called()

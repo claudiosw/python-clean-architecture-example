@@ -4,3 +4,7 @@ venv
 .env
 
 .coverage
+
+##### Specific to this application #####
+# Log
+app.log

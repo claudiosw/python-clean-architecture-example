@@ -6,6 +6,7 @@
 from src.app.cli_memory.controllers.create_profession_controller \
     import CreateProfessionController
 from src.interactor.dtos.create_profession_dtos import CreateProfessionInputDto
+from src.interactor.interfaces.logger.logger import LoggerInterface
 
 
 def test_create_profession(monkeypatch, mocker, fixture_profession_developer):
@@ -27,6 +28,10 @@ CreateProfessionUseCase')
     mock_view = mocker.patch(
         'src.app.cli_memory.controllers.create_profession_controller.\
 CreateProfessionView')
+    logger_mock = mocker.patch.object(
+        LoggerInterface,
+        "log_info"
+    )
     result_use_case = {
         "profession_id": fixture_profession_developer["profession_id"],
         "name": fixture_profession_developer["name"],
@@ -35,14 +40,16 @@ CreateProfessionView')
     mock_use_case_instance.execute.return_value = result_use_case
     mock_view_instance = mock_view.return_value
 
-    controller = CreateProfessionController()
+    controller = CreateProfessionController(logger_mock)
     controller.execute()
 
     mock_repository.assert_called_once_with()
     mock_presenter.assert_called_once_with()
     mock_use_case.assert_called_once_with(
         mock_presenter.return_value,
-        mock_repository.return_value)
+        mock_repository.return_value,
+        logger_mock
+    )
     input_dto = CreateProfessionInputDto(name, description)
     mock_use_case_instance.execute.assert_called_once_with(input_dto)
     mock_view_instance.show.assert_called_once_with(result_use_case)
