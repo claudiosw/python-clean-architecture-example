@@ -1,4 +1,4 @@
-""" This module contains the CliMemoryControllerInterface class
+""" This module contains the FlaskMemoryControllerInterface class
 """
 
 
@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 
 
 class FlaskMemoryControllerInterface(ABC):
-    """ This class is the interface for the CliMemoryController class
+    """ This class is the interface for the FlaskMemoryControllerInterface class
     """
 
     def get_profession_info(self, json_input) -> None:
