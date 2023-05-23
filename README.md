@@ -40,7 +40,12 @@ pip install -r requirements.txt
 pre-commit install
 ```
 
-# Run the CLI
+# Run the In-Memory CLI
 ```
 python .\cli_memory_process_handler.py
+```
+
+# Run the In-Memory Flask API
+```
+python .\flask_memory_process_handler.py
 ```
