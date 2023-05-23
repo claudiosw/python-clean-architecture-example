@@ -23,7 +23,7 @@ class CreateProfessionController(FlaskMemoryControllerInterface):
     def get_profession_info(self, json_input) -> None:
         """ Get Profession Info
         :param json_input: Input data
-        :raises: ValueError if missing profession name or description.
+        :raises: ValueError if profession name or description are missing.
         """
         if "name" in json_input:
             name = json_input["name"]
@@ -37,7 +37,7 @@ class CreateProfessionController(FlaskMemoryControllerInterface):
 
     def execute(self) -> Dict:
         """ Execute the create profession controller
-        :returns: Data that was created
+        :returns: Profession created
         """
         repository = ProfessionInMemoryRepository()
         presenter = CreateProfessionPresenter()
