@@ -13,7 +13,6 @@ from src.interactor.interfaces.logger.logger import LoggerInterface
 def test_create_profession(monkeypatch, mocker, fixture_profession_developer):
     name = fixture_profession_developer["name"]
     description = fixture_profession_developer["description"]
-    # fake_user_inputs = iter([name, description])
     fake_user_inputs = {
         "name": name,
         "description": description
