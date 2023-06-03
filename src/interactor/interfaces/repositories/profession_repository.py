@@ -3,6 +3,7 @@
 
 
 from abc import ABC, abstractmethod
+from typing import Optional
 from src.domain.value_objects import ProfessionId
 from src.domain.entities.profession import Profession
 
@@ -12,7 +13,7 @@ class ProfessionRepositoryInterface(ABC):
     """
 
     @abstractmethod
-    def get(self, profession_id: ProfessionId) -> Profession:
+    def get(self, profession_id: ProfessionId) -> Optional[Profession]:
         """ Get a Profession by id
 
         :param profession_id: ProfessionId
@@ -20,7 +21,7 @@ class ProfessionRepositoryInterface(ABC):
         """
 
     @abstractmethod
-    def create(self, name: str, description: str) -> Profession:
+    def create(self, name: str, description: str) -> Optional[Profession]:
         """ Create a Profession
 
         :param name: Profession Name
@@ -29,7 +30,7 @@ class ProfessionRepositoryInterface(ABC):
         """
 
     @abstractmethod
-    def update(self, profession: Profession) -> Profession:
+    def update(self, profession: Profession) -> Optional[Profession]:
         """ Save a Profession
 
         :param Profession: Profession
