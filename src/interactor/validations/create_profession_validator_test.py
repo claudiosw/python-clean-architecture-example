@@ -37,7 +37,7 @@ BaseInputValidator.verify")
     }
     validator = CreateProfessionInputDtoValidator(input_data)
     validator.validate()
-    assert validator.verify.call_once_with(schema)  # pylint: disable=E1101
+    validator.verify.assert_called_once_with(schema)  # pylint: disable=E1101
 
 
 def test_create_profession_validator_empty_input(fixture_profession_developer):
