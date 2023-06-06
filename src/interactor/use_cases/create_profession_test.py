@@ -63,10 +63,11 @@ CreateProfessionInputDtoValidator"
 
     # Testing None return value from repository
     repository_mock.create.return_value = None
+    profession_name = fixture_profession_developer["name"]
     with pytest.raises(ItemNotCreatedException) as exception_info:
         use_case.execute(input_dto)
     assert str(exception_info.value) == \
-        "Profession 'Developer' was not created correctly"
+        f"Profession '{profession_name}' was not created correctly"
 
 
 def test_create_profession_empty_field(mocker, fixture_profession_developer):
