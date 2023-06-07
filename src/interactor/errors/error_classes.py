@@ -22,3 +22,7 @@ class ItemNotCreatedException(Exception):
     def __str__(self) -> str:
         return f"{self.item_type.capitalize()} '{self.item_name}' was not \
 created correctly"
+
+
+class UniqueViolationError(Exception):
+    """ Exception raised when a unique constraint is violated """
