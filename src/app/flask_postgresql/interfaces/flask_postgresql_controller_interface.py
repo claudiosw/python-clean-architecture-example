@@ -1,4 +1,4 @@
-""" This module contains the FlaskMemoryControllerInterface class
+""" This module contains the FlaskPostgresqlControllerInterface class
 """
 
 
