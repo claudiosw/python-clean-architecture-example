@@ -25,7 +25,7 @@ repos:
     hooks:
       - id: mypy
         name: mypy
-        entry: "mypy --explicit-package-bases ./"
+        entry: "mypy --exclude '(docs|venv)' --explicit-package-bases ./"
         language: python
         # trigger for commits changing Python files
         types: [python]
