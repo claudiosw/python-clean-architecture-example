@@ -4,10 +4,15 @@
 
 
 import pytest
-from src.app.flask_postgresql.controllers.create_profession_controller \
-    import CreateProfessionController
+from unittest import mock
 from src.interactor.dtos.create_profession_dtos import CreateProfessionInputDto
 from src.interactor.interfaces.logger.logger import LoggerInterface
+
+with mock.patch(
+    "sqlalchemy.create_engine"
+) as mock_create_engine:
+    from src.app.flask_postgresql.controllers.create_profession_controller \
+        import CreateProfessionController
 
 
 def test_create_profession(monkeypatch, mocker, fixture_profession_developer):

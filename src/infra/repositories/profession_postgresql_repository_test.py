@@ -4,11 +4,17 @@
 
 
 import pytest
+from unittest import mock
 from sqlalchemy.exc import IntegrityError
 from src.domain.entities.profession import Profession
-from src.infra.db_models.profession_db_model import ProfessionsDBModel
 from src.interactor.errors.error_classes import UniqueViolationError
-from .profession_postgresql_repository import ProfessionPostgresqlRepository
+
+with mock.patch(
+    "sqlalchemy.create_engine"
+) as mock_create_engine:
+    from src.infra.db_models.profession_db_model import ProfessionsDBModel
+    from .profession_postgresql_repository \
+        import ProfessionPostgresqlRepository
 
 
 def test_profession_postgresql_repository(
@@ -20,6 +26,7 @@ def test_profession_postgresql_repository(
         'uuid.uuid4',
         return_value=fixture_profession_developer["profession_id"]
     )
+
     professions_db_model_mock = mocker.patch(
         'src.infra.repositories.profession_postgresql_repository.\
 ProfessionsDBModel')
