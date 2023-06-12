@@ -3,8 +3,8 @@
 # pylint: disable=missing-function-docstring
 
 
-import pytest
 from unittest import mock
+import pytest
 from sqlalchemy.exc import IntegrityError
 from src.domain.entities.profession import Profession
 from src.interactor.errors.error_classes import UniqueViolationError
