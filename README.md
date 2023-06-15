@@ -50,3 +50,13 @@ python .\cli_memory_process_handler.py
 ```
 python .\flask_memory_process_handler.py
 ```
+
+# Run the PostgreSQL Flask API
+```
+python .\flask_postgresql_process_handler.py
+```
+
+# Documentation
+
+## API Documentation of the Flask PostgreSQL flavor of this project:
+You can access the API documentation [here](https://documenter.getpostman.com/view/27866946/2s93saZYEK).
