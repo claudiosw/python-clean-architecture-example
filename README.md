@@ -51,6 +51,20 @@ python .\cli_memory_process_handler.py
 python .\flask_memory_process_handler.py
 ```
 
+# Prepare the PostgreSQL database
+
+To use the PostgreSQL flavour of our app, we need to install PostgreSQL software. It can be in other machine as well. We will need a database and a user to access this database.
+
+Create a .env file. Use the .env.example file as a template. Set the values considering your scenario.
+
+## Apply database migrations
+
+With the PostgreSQL database installed and configured, you can apply the database migrations with the command below:
+
+```
+alembic upgrade head
+```
+
 # Run the PostgreSQL Flask API
 ```
 python .\flask_postgresql_process_handler.py
