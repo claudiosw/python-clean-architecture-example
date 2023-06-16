@@ -4,10 +4,15 @@
 
 
 import pytest
-from src.app.flask_memory.controllers.create_profession_controller \
-    import CreateProfessionController
+from unittest import mock
 from src.interactor.dtos.create_profession_dtos import CreateProfessionInputDto
 from src.interactor.interfaces.logger.logger import LoggerInterface
+
+with mock.patch(
+    "sqlalchemy.create_engine"
+) as mock_create_engine:
+    from src.app.flask_postgresql.controllers.create_profession_controller \
+        import CreateProfessionController
 
 
 def test_create_profession(monkeypatch, mocker, fixture_profession_developer):
@@ -20,13 +25,13 @@ def test_create_profession(monkeypatch, mocker, fixture_profession_developer):
     monkeypatch.setattr('builtins.input', lambda _: next(fake_user_inputs))
 
     mock_repository = mocker.patch(
-        'src.app.flask_memory.controllers.create_profession_controller.\
-ProfessionInMemoryRepository')
+        'src.app.flask_postgresql.controllers.create_profession_controller.\
+ProfessionPostgresqlRepository')
     mock_presenter = mocker.patch(
-        'src.app.flask_memory.controllers.create_profession_controller.\
+        'src.app.flask_postgresql.controllers.create_profession_controller.\
 CreateProfessionPresenter')
     mock_use_case = mocker.patch(
-        'src.app.flask_memory.controllers.create_profession_controller.\
+        'src.app.flask_postgresql.controllers.create_profession_controller.\
 CreateProfessionUseCase')
     mock_use_case_instance = mock_use_case.return_value
     logger_mock = mocker.patch.object(

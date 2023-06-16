@@ -12,6 +12,7 @@ from src.interactor.interfaces.repositories.profession_repository \
 from src.interactor.validations.create_profession_validator \
     import CreateProfessionInputDtoValidator
 from src.interactor.interfaces.logger.logger import LoggerInterface
+from src.interactor.errors.error_classes import ItemNotCreatedException
 
 
 class CreateProfessionUseCase():
@@ -44,6 +45,9 @@ class CreateProfessionUseCase():
             input_dto.name,
             input_dto.description
         )
+        if profession is None:
+            self.logger.log_exception("Profession creation failed")
+            raise ItemNotCreatedException(input_dto.name, "Profession")
         output_dto = CreateProfessionOutputDto(profession)
         presenter_response = self.presenter.present(output_dto)
         self.logger.log_info("Profession created successfully")

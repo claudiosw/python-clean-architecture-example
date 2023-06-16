@@ -13,6 +13,7 @@ from src.interactor.interfaces.presenters.create_profession_presenter \
 from src.interactor.interfaces.repositories.profession_repository \
     import ProfessionRepositoryInterface
 from src.interactor.interfaces.logger.logger import LoggerInterface
+from src.interactor.errors.error_classes import ItemNotCreatedException
 
 
 def test_create_profession(mocker, fixture_profession_developer):
@@ -59,6 +60,14 @@ CreateProfessionInputDtoValidator"
     output_dto = CreateProfessionOutputDto(profession)
     presenter_mock.present.assert_called_once_with(output_dto)
     assert result == "Test output"
+
+    # Testing None return value from repository
+    repository_mock.create.return_value = None
+    profession_name = fixture_profession_developer["name"]
+    with pytest.raises(ItemNotCreatedException) as exception_info:
+        use_case.execute(input_dto)
+    assert str(exception_info.value) == \
+        f"Profession '{profession_name}' was not created correctly"
 
 
 def test_create_profession_empty_field(mocker, fixture_profession_developer):

@@ -4,7 +4,8 @@
     "python.linting.pylintArgs": [
         "--max-line-length=79",
         "--load-plugins",
-        "pylint_pytest"
+        "pylint_pytest",
+        "--ignore-patterns=alembic/versions/*"
         ],
     "python.linting.mypyEnabled": true,
     "files.exclude": {

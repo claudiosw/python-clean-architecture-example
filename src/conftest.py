@@ -12,7 +12,7 @@ def fixture_profession_developer():
     """ Fixture with Profession example """
     return {
         "profession_id": uuid.uuid4(),
-        "name": "Developer",
+        "name": "Developer - Test",
         "description": "Developer is a person that write software code. This \
         professional needs to know at least one programming language."
     }
