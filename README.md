@@ -75,3 +75,12 @@ python .\flask_postgresql_process_handler.py
 
 ## API Documentation of the Flask PostgreSQL flavor of this project:
 You can access the API documentation [here](https://documenter.getpostman.com/view/27866946/2s93saZYEK).
+
+
+# Closing
+
+I hope this repository and my article series were valuable to you. If that was the case, please star it.
+
+If you want to contact me, reach me on [LinkedIn](https://www.linkedin.com/in/claudiosw/) or [Twitter](https://twitter.com/ClaudioShigueoW).
+
+I am looking for a Python position. I also offer paid mentoring.
