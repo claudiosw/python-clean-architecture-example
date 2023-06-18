@@ -1,4 +1,4 @@
-""" Flask Blueprint Create Profession
+""" Flask PostgreSQL Blueprint Create Profession
 """
 
 
