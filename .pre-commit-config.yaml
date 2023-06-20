@@ -4,7 +4,7 @@ repos:
     hooks:
     - id: flake8
       stages: [commit]
-      exclude: '(migrations|alembic)/.*'
+      exclude: '(migrations|alembic|docs)/.*'
   - repo: local
     hooks:
     - id: pytest

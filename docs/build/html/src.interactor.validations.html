@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.interactor.validations package &mdash; Python Clean Architecture example 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Clean Architecture example
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">src.interactor.validations package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-src.interactor.validations.base_input_validator">src.interactor.validations.base_input_validator module</a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator.BaseInputValidator"><code class="docutils literal notranslate"><span class="pre">BaseInputValidator</span></code></a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator.BaseInputValidator.verify"><code class="docutils literal notranslate"><span class="pre">BaseInputValidator.verify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.interactor.validations.base_input_validator_test">src.interactor.validations.base_input_validator_test module</a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.BaseValidator"><code class="docutils literal notranslate"><span class="pre">BaseValidator</span></code></a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.BaseValidator.validate"><code class="docutils literal notranslate"><span class="pre">BaseValidator.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_empty_data"><code class="docutils literal notranslate"><span class="pre">test_base_validator_with_empty_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_long_data"><code class="docutils literal notranslate"><span class="pre">test_base_validator_with_long_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_small_data"><code class="docutils literal notranslate"><span class="pre">test_base_validator_with_small_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_valid_data"><code class="docutils literal notranslate"><span class="pre">test_base_validator_with_valid_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.validations.base_input_validator_test.test_base_validator_without_required_data"><code class="docutils literal notranslate"><span class="pre">test_base_validator_without_required_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.interactor.validations.create_profession_validator">src.interactor.validations.create_profession_validator module</a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.create_profession_validator.CreateProfessionInputDtoValidator"><code class="docutils literal notranslate"><span class="pre">CreateProfessionInputDtoValidator</span></code></a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.create_profession_validator.CreateProfessionInputDtoValidator.validate"><code class="docutils literal notranslate"><span class="pre">CreateProfessionInputDtoValidator.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.interactor.validations.create_profession_validator_test">src.interactor.validations.create_profession_validator_test module</a><ul>
+<li><a class="reference internal" href="#src.interactor.validations.create_profession_validator_test.test_create_profession_custom_validation"><code class="docutils literal notranslate"><span class="pre">test_create_profession_custom_validation()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.validations.create_profession_validator_test.test_create_profession_validator_empty_input"><code class="docutils literal notranslate"><span class="pre">test_create_profession_validator_empty_input()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.validations.create_profession_validator_test.test_create_profession_validator_valid_data"><code class="docutils literal notranslate"><span class="pre">test_create_profession_validator_valid_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.interactor.validations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Clean Architecture example</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">src.interactor.validations package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.interactor.validations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-interactor-validations-package">
+<h1>src.interactor.validations package<a class="headerlink" href="#src-interactor-validations-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-src.interactor.validations.base_input_validator">
+<span id="src-interactor-validations-base-input-validator-module"></span><h2>src.interactor.validations.base_input_validator module<a class="headerlink" href="#module-src.interactor.validations.base_input_validator" title="Permalink to this heading"></a></h2>
+<p>This module provides the base class BaseInputValidator for input validation</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator.BaseInputValidator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator.</span></span><span class="sig-name descname"><span class="pre">BaseInputValidator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator.BaseInputValidator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class provides the base class for input validation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator.BaseInputValidator.verify">
+<span class="sig-name descname"><span class="pre">verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.interactor.validations.base_input_validator.BaseInputValidator.verify" title="Permalink to this definition"></a></dt>
+<dd><p>Validates the input data against the provided schema
+:param schema: The schema to validate against
+:return: None
+:raises ValueError: If the input data is invalid.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.interactor.validations.base_input_validator_test">
+<span id="src-interactor-validations-base-input-validator-test-module"></span><h2>src.interactor.validations.base_input_validator_test module<a class="headerlink" href="#module-src.interactor.validations.base_input_validator_test" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.BaseValidator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator_test.</span></span><span class="sig-name descname"><span class="pre">BaseValidator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.BaseValidator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.interactor.validations.base_input_validator.BaseInputValidator" title="src.interactor.validations.base_input_validator.BaseInputValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseInputValidator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.BaseValidator.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.BaseValidator.validate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.test_base_validator_with_empty_data">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_base_validator_with_empty_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_empty_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.test_base_validator_with_long_data">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_base_validator_with_long_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_long_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.test_base_validator_with_small_data">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_base_validator_with_small_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_small_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.test_base_validator_with_valid_data">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_base_validator_with_valid_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.test_base_validator_with_valid_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.base_input_validator_test.test_base_validator_without_required_data">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.base_input_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_base_validator_without_required_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.base_input_validator_test.test_base_validator_without_required_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-src.interactor.validations.create_profession_validator">
+<span id="src-interactor-validations-create-profession-validator-module"></span><h2>src.interactor.validations.create_profession_validator module<a class="headerlink" href="#module-src.interactor.validations.create_profession_validator" title="Permalink to this heading"></a></h2>
+<p>Defines the validator for the create profession input data.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.interactor.validations.create_profession_validator.CreateProfessionInputDtoValidator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.interactor.validations.create_profession_validator.</span></span><span class="sig-name descname"><span class="pre">CreateProfessionInputDtoValidator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.create_profession_validator.CreateProfessionInputDtoValidator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.interactor.validations.base_input_validator.BaseInputValidator" title="src.interactor.validations.base_input_validator.BaseInputValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseInputValidator</span></code></a></p>
+<p>Validates the create profession input data.
+:param input_data: The input data to be validated.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.interactor.validations.create_profession_validator.CreateProfessionInputDtoValidator.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.interactor.validations.create_profession_validator.CreateProfessionInputDtoValidator.validate" title="Permalink to this definition"></a></dt>
+<dd><p>Validates the input data</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.interactor.validations.create_profession_validator_test">
+<span id="src-interactor-validations-create-profession-validator-test-module"></span><h2>src.interactor.validations.create_profession_validator_test module<a class="headerlink" href="#module-src.interactor.validations.create_profession_validator_test" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.create_profession_validator_test.test_create_profession_custom_validation">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.create_profession_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_create_profession_custom_validation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixture_profession_developer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.create_profession_validator_test.test_create_profession_custom_validation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.create_profession_validator_test.test_create_profession_validator_empty_input">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.create_profession_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_create_profession_validator_empty_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixture_profession_developer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.create_profession_validator_test.test_create_profession_validator_empty_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.validations.create_profession_validator_test.test_create_profession_validator_valid_data">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.validations.create_profession_validator_test.</span></span><span class="sig-name descname"><span class="pre">test_create_profession_validator_valid_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mocker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixture_profession_developer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.validations.create_profession_validator_test.test_create_profession_validator_valid_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-src.interactor.validations">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.interactor.validations" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Claudio Shigueo Watanabe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
