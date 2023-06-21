@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.interactor.use_cases package &mdash; Python Clean Architecture example 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python Clean Architecture example
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">src.interactor.use_cases package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-src.interactor.use_cases.create_profession">src.interactor.use_cases.create_profession module</a><ul>
+<li><a class="reference internal" href="#src.interactor.use_cases.create_profession.CreateProfessionUseCase"><code class="docutils literal notranslate"><span class="pre">CreateProfessionUseCase</span></code></a><ul>
+<li><a class="reference internal" href="#src.interactor.use_cases.create_profession.CreateProfessionUseCase.execute"><code class="docutils literal notranslate"><span class="pre">CreateProfessionUseCase.execute()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.interactor.use_cases.create_profession_test">src.interactor.use_cases.create_profession_test module</a><ul>
+<li><a class="reference internal" href="#src.interactor.use_cases.create_profession_test.test_create_profession"><code class="docutils literal notranslate"><span class="pre">test_create_profession()</span></code></a></li>
+<li><a class="reference internal" href="#src.interactor.use_cases.create_profession_test.test_create_profession_empty_field"><code class="docutils literal notranslate"><span class="pre">test_create_profession_empty_field()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.interactor.use_cases">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Clean Architecture example</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">src.interactor.use_cases package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.interactor.use_cases.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-interactor-use-cases-package">
+<h1>src.interactor.use_cases package<a class="headerlink" href="#src-interactor-use-cases-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-src.interactor.use_cases.create_profession">
+<span id="src-interactor-use-cases-create-profession-module"></span><h2>src.interactor.use_cases.create_profession module<a class="headerlink" href="#module-src.interactor.use_cases.create_profession" title="Permalink to this heading"></a></h2>
+<p>This module is responsible for creating a new profession.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.interactor.use_cases.create_profession.CreateProfessionUseCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.interactor.use_cases.create_profession.</span></span><span class="sig-name descname"><span class="pre">CreateProfessionUseCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">presenter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.interactor.interfaces.presenters.html#src.interactor.interfaces.presenters.create_profession_presenter.CreateProfessionPresenterInterface" title="src.interactor.interfaces.presenters.create_profession_presenter.CreateProfessionPresenterInterface"><span class="pre">CreateProfessionPresenterInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.interactor.interfaces.repositories.html#src.interactor.interfaces.repositories.profession_repository.ProfessionRepositoryInterface" title="src.interactor.interfaces.repositories.profession_repository.ProfessionRepositoryInterface"><span class="pre">ProfessionRepositoryInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.interactor.interfaces.logger.html#src.interactor.interfaces.logger.logger.LoggerInterface" title="src.interactor.interfaces.logger.logger.LoggerInterface"><span class="pre">LoggerInterface</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.use_cases.create_profession.CreateProfessionUseCase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is responsible for creating a new profession.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.interactor.use_cases.create_profession.CreateProfessionUseCase.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dto</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.interactor.dtos.html#src.interactor.dtos.create_profession_dtos.CreateProfessionInputDto" title="src.interactor.dtos.create_profession_dtos.CreateProfessionInputDto"><span class="pre">CreateProfessionInputDto</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#src.interactor.use_cases.create_profession.CreateProfessionUseCase.execute" title="Permalink to this definition"></a></dt>
+<dd><p>This method is responsible for creating a new profession.
+:param input_dto: The input data transfer object.
+:type input_dto: CreateProfessionInputDto
+:return: Dict</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.interactor.use_cases.create_profession_test">
+<span id="src-interactor-use-cases-create-profession-test-module"></span><h2>src.interactor.use_cases.create_profession_test module<a class="headerlink" href="#module-src.interactor.use_cases.create_profession_test" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.use_cases.create_profession_test.test_create_profession">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.use_cases.create_profession_test.</span></span><span class="sig-name descname"><span class="pre">test_create_profession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mocker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixture_profession_developer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.use_cases.create_profession_test.test_create_profession" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.interactor.use_cases.create_profession_test.test_create_profession_empty_field">
+<span class="sig-prename descclassname"><span class="pre">src.interactor.use_cases.create_profession_test.</span></span><span class="sig-name descname"><span class="pre">test_create_profession_empty_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mocker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixture_profession_developer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.interactor.use_cases.create_profession_test.test_create_profession_empty_field" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-src.interactor.use_cases">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.interactor.use_cases" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Claudio Shigueo Watanabe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
